@@ -11,10 +11,12 @@ export const connectToDatabase = async () => {
 
   cached.promise =
     cached.promise ||
-    mongoose.connect(MONGODB_URI, {
-      dbName: "evently",
-      bufferCommands: false,
-    });
+    mongoose
+      .connect(MONGODB_URI, {
+        dbName: "evently",
+        bufferCommands: false,
+      })
+      .then(() => console.log("tekhdim"));
 
   cached.conn = await cached.promise;
 
